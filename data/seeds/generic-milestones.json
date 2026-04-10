@@ -1,0 +1,261 @@
+{
+  "category": "milestone_trivia",
+  "is_adelina_specific": false,
+  "questions": [
+    {
+      "id": 29,
+      "question": "By what age should Adelina be able to hold her head upright when held in a sitting position?",
+      "answer": "A) By 3 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 30,
+      "question": "By 6 months, Adelina should be able to _____.",
+      "answer": "C) Roll from her tummy to her back",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Pull herself to standing",
+        "B) Sit independently without support",
+        "C) Roll from her tummy to her back",
+        "D) Crawl on hands and knees"
+      ]
+    },
+    {
+      "id": 31,
+      "question": "True or False: By 9 months, Adelina should be able to sit independently and play with toys.",
+      "answer": "True",
+      "answer_type": "true_false",
+      "options": ["True", "False"]
+    },
+    {
+      "id": 32,
+      "question": "By what age should Adelina start babbling with consonant sounds like 'da, da'?",
+      "answer": "B) By 6 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 33,
+      "question": "By 3 months, Adelina should be able to _____.",
+      "answer": "B) Coo, smile, and turn her head toward your voice",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Babble with consonant sounds",
+        "B) Coo, smile, and turn her head toward your voice",
+        "C) Respond to her own name",
+        "D) Use gestures like raising her arms to be picked up"
+      ]
+    },
+    {
+      "id": 34,
+      "question": "Which comes first?",
+      "answer": "A) Bouncing on her legs when held standing",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Bouncing on her legs when held standing",
+        "B) Cruising along furniture"
+      ]
+    },
+    {
+      "id": 35,
+      "question": "By what age should Adelina be able to stand with support and start taking side steps along furniture?",
+      "answer": "C) By 9 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 36,
+      "question": "True or False: By 12 months, Adelina may be able to walk independently.",
+      "answer": "True — though the full range is 10–15 months",
+      "answer_type": "true_false",
+      "options": ["True", "False"]
+    },
+    {
+      "id": 37,
+      "question": "By 9 months, Adelina should be able to _____.",
+      "answer": "D) Shake her head 'no' and raise her arms to be picked up",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Say a few real words",
+        "B) Coo and make different cries for hunger vs. pain",
+        "C) Understand instructions like 'come here'",
+        "D) Shake her head 'no' and raise her arms to be picked up"
+      ]
+    },
+    {
+      "id": 38,
+      "question": "By what age should Adelina be able to lift her head and chest off the ground and reach for a toy?",
+      "answer": "B) By 6 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 39,
+      "question": "Which comes first?",
+      "answer": "A) Responding to her own name",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Responding to her own name",
+        "B) Understanding 'come to mummy'"
+      ]
+    },
+    {
+      "id": 40,
+      "question": "True or False: By 3 months, Adelina should already have different cries for pain, hunger, and tiredness.",
+      "answer": "True",
+      "answer_type": "true_false",
+      "options": ["True", "False"]
+    },
+    {
+      "id": 41,
+      "question": "By 12 months, Adelina should be able to _____.",
+      "answer": "C) Follow a simple instruction like 'come here'",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Babble with varied syllables like 'bababba'",
+        "B) Take turns vocalizing back and forth with you",
+        "C) Follow a simple instruction like 'come here'",
+        "D) React to sudden loud noises"
+      ]
+    },
+    {
+      "id": 42,
+      "question": "By what age should Adelina be able to get herself from lying down into a sitting position on her own?",
+      "answer": "C) By 9 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 43,
+      "question": "By 6 months, Adelina should be able to _____.",
+      "answer": "B) Take turns 'talking' back and forth with you",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Point at things she wants",
+        "B) Take turns 'talking' back and forth with you",
+        "C) Understand her own name",
+        "D) Use gestures to communicate"
+      ]
+    },
+    {
+      "id": 44,
+      "question": "Which comes first?",
+      "answer": "B) Reaching and batting at toys",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Passing toys between hands",
+        "B) Reaching and batting at toys"
+      ]
+    },
+    {
+      "id": 45,
+      "question": "By what age should Adelina be able to pull herself up to standing and cruise along furniture?",
+      "answer": "D) By 12 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 46,
+      "question": "True or False: By 9 months, Adelina should be able to look at a familiar object when you name it.",
+      "answer": "True",
+      "answer_type": "true_false",
+      "options": ["True", "False"]
+    },
+    {
+      "id": 47,
+      "question": "By 3 months, Adelina should be able to _____.",
+      "answer": "A) Lift her head 45–90 degrees when lying on her tummy",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Lift her head 45–90 degrees when lying on her tummy",
+        "B) Roll from tummy to back",
+        "C) Sit with hands for support",
+        "D) Bounce on her legs when held standing"
+      ]
+    },
+    {
+      "id": 48,
+      "question": "By what age should Adelina be able to pick up small objects using just her thumb and index finger?",
+      "answer": "D) By 12 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 49,
+      "question": "Which comes first?",
+      "answer": "A) Babbling with repeated syllables like 'bababba'",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Babbling with repeated syllables like 'bababba'",
+        "B) Saying a few real words"
+      ]
+    },
+    {
+      "id": 50,
+      "question": "True or False: By 6 months, Adelina should be able to sit completely independently without any support.",
+      "answer": "False — sitting independently comes by 9 months. At 6 months she uses her hands for support.",
+      "answer_type": "true_false",
+      "options": ["True", "False"]
+    },
+    {
+      "id": 51,
+      "question": "By what age should Adelina be able to point with her index finger?",
+      "answer": "C) By 9 months",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) By 3 months",
+        "B) By 6 months",
+        "C) By 9 months",
+        "D) By 12 months"
+      ]
+    },
+    {
+      "id": 52,
+      "question": "By 12 months, Adelina should be able to _____.",
+      "answer": "D) Move freely between lying, sitting, and standing on her own",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Commando crawl",
+        "B) Stand briefly with furniture support",
+        "C) Walk only when both hands are held",
+        "D) Move freely between lying, sitting, and standing on her own"
+      ]
+    }
+  ]
+}

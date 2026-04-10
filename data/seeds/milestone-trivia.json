@@ -1,0 +1,67 @@
+{
+  "category": "raising_adelina",
+  "questions": [
+    {
+      "id": 11,
+      "question": "Scientists scanned the brains of different family members looking at photos of a baby in their family. Who showed the strongest emotional reaction?",
+      "answer": "E) Grandmother",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Mother",
+        "B) Father",
+        "C) Grandfather",
+        "D) Uncle",
+        "E) Grandmother"
+      ],
+      "follow_up_context": "In a 2021 study led by anthropologist James Rilling at Emory University, grandmothers who looked at photos of their grandchildren showed the strongest activation in the parts of the brain associated with emotional empathy — the regions that light up when you feel what someone else is feeling, not just when you recognize or think about them. They outscored everyone — including mom and dad.\n\nInterestingly, when the same grandmothers looked at photos of their own adult children, the response was different — more cognitive, less visceral. The effect was specific to grandchildren. The researchers believe this may be an evolutionary adaptation: grandmothers are neurologically primed to be emotionally in sync with their grandchildren in a unique and powerful way."
+    },
+    {
+      "id": 12,
+      "question": "When sung to versus spoken to, babies stayed calm _______ as long.",
+      "answer": "B) Nearly twice as long",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) About the same amount of time",
+        "B) Nearly twice as long",
+        "C) About 20% longer",
+        "D) Depending on the song"
+      ],
+      "follow_up_context": "Researcher Sandra Trehub at the University of Toronto spent decades studying how babies respond to music versus speech. Babies stayed calm and content nearly twice as long when sung to versus spoken to, even when the singer was completely untrained and the song was simple or made up.\n\nWhat matters isn't the quality of your voice or whether you know all the words. It's the melody and rhythm — the rise and fall of the notes, the predictable pattern, the steady tempo. Babies' brains are specifically tuned to process musical patterns, and that processing is calming in a way that regular speech isn't.\n\nSo the next time you're with Adelina and she's fussy — try humming. Try an old song from your childhood, even if you only remember half the words."
+    },
+    {
+      "id": 14,
+      "question": "True or False: Playing classical music to babies has been proven by research to make them more intelligent.",
+      "answer": "False — the 'Mozart Effect' was based on a misunderstood study and has never been replicated in babies",
+      "answer_type": "true_false",
+      "options": ["True", "False"],
+      "follow_up_context": "The 'Mozart Effect' became one of the most successful myths in parenting history — it even prompted the state of Georgia to propose giving classical music CDs to every newborn. But the original 1993 study it was based on? It was conducted on college students, lasted 15 minutes, measured only one specific spatial reasoning task, and was never replicated.\n\nDecades of follow-up research on infants found no lasting effect on intelligence from passive music exposure.\n\nWhat does measurably support brain development in babies? Responsive back-and-forth conversation. Eye contact. Singing (actively, not just playing recordings). Being responded to when they cry. Narrating their surroundings to them."
+    },
+    {
+      "id": 16,
+      "question": "Studies show that babies whose caregivers spoke to them in a specific way had measurably larger vocabularies by age 2.\n\nFill in the blank: Babies whose caregivers used more '________' had significantly larger vocabularies at age 2 than babies who were spoken to in a normal adult tone of voice.",
+      "answer": "B) Parentese (aka baby voice)",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Complex vocabulary",
+        "B) Parentese (aka baby voice)",
+        "C) Bilingual input",
+        "D) Narration"
+      ],
+      "follow_up_context": "You know that voice — the slightly silly, high-pitched, stretched-out, singsong way people instinctively talk to babies? Researchers call it 'parentese,' and it turns out it isn't silly at all.\n\nA 2020 study published in the Proceedings of the National Academy of Sciences found that babies whose parents and caregivers used more parentese had measurably larger vocabularies at age 2 compared to babies spoken to in normal adult tones.\n\nWhy does it work? The exaggerated melody, slower pace, and clear vowel sounds are actually easier for a developing brain to process and learn from. Babies' brains are specifically tuned to pick up on that speech pattern — it's almost like it's been highlighted for them."
+    },
+    {
+      "id": 17,
+      "question": "Select all that apply: When you play peek-a-boo with Adelina, what is she learning?",
+      "answer": "A, B, C, and D are all true",
+      "answer_type": "select_all",
+      "options": [
+        "A) Object permanence",
+        "B) That you will come back",
+        "C) Socialization",
+        "D) How to handle surprises",
+        "E) How to play jokes"
+      ],
+      "follow_up_context": "Every single one of A through D is happening simultaneously every time you play peek-a-boo. E is the only false one.\n\nOn A — object permanence: Before about 8 months, babies genuinely believe that when something disappears from view, it simply ceases to exist. When you hide your face and reappear, you're giving her brain direct evidence that the world is stable and permanent — that things continue to be real even when she can't see them. Developmental psychologist Jean Piaget identified this as one of the foundational cognitive achievements of infancy.\n\nOn B — you come back: The emotional version of that same lesson is even more important. When you disappear and reappear, you're teaching Adelina: the people I love go away sometimes, AND they come back. That knowledge — built through hundreds of peek-a-boo games — is part of what lets her eventually tolerate separation without panic.\n\nOn C — social laughter: Research shows that babies laugh earliest and most readily in response to people, not to toys or tickling. Mutual laughter between a caregiver and baby is one of the strongest early predictors of social competence. When Adelina laughs at your peek-a-boo, she isn't just reacting to the motion. She is responding to you — and that distinction matters enormously for her social development.\n\nOn D — nervous system training: The tiny surge of suspense ('where did she go?') followed by relief and delight ('there she is!') is actually a micro-dose of stress followed by recovery — with a trusted person guiding the whole thing. Done lovingly and repeatedly, this is how babies learn that surprise is survivable and that the world after a scare can be joyful again."
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "category": "milestone_trivia",
+  "is_adelina_specific": true,
+  "questions": [
+    {
+      "id": 18,
+      "question": "At almost 8 weeks old, Adelina flashed her very first smile. Who was the lucky audience?",
+      "answer": "C) Both Mommy and Daddy",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Just Mommy",
+        "B) Just Daddy",
+        "C) Both Mommy and Daddy",
+        "D) The dog"
+      ],
+      "follow_up_context": "At just under 8 weeks old, Adelina smiled at both Mommy and Daddy — a social smile, which is different from the reflex smiles newborns do in their sleep. A social smile means she recognized faces she loves and responded to them. Big deal!"
+    },
+    {
+      "id": 19,
+      "question": "At 3 months old, Adelina gave her very first frown to who?",
+      "answer": "B) Tony",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Pat",
+        "B) Tony",
+        "C) Grandma",
+        "D) Grandpa"
+      ],
+      "follow_up_context": "Tony was the recipient of Adelina's debut frown at 3 months old. She was already forming opinions."
+    },
+    {
+      "id": 20,
+      "question": "At 3 months, Adelina's babbling suddenly went from zero to...",
+      "answer": "B) Exponentially more — she couldn't stop",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Quieter — she got more serious",
+        "B) Exponentially more — she couldn't stop",
+        "C) Her first recognizable word",
+        "D) Mostly just squeaking"
+      ],
+      "follow_up_context": "Around 3 months, Adelina's babbling exploded. Babies this age are discovering their voice and experimenting with sounds — it's the very beginning of language development."
+    },
+    {
+      "id": 21,
+      "question": "At 3.5 months, Adelina made her first big physical move — literally. What did she do?",
+      "answer": "B) Rolled to her side on her own",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Rolled all the way over",
+        "B) Rolled to her side on her own",
+        "C) Pushed up on her arms",
+        "D) Sat up with no support"
+      ],
+      "follow_up_context": "Not a full roll yet — but rolling to her side at 3.5 months is a real milestone. She was building the core strength and coordination that leads to full rolling."
+    },
+    {
+      "id": 22,
+      "question": "At 3.5 months, Adelina hit a big nighttime milestone. What was it?",
+      "answer": "C) No more nighttime feedings",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Slept a full 12 hours",
+        "B) Moved to her own room",
+        "C) No more nighttime feedings",
+        "D) Started using a pacifier"
+      ],
+      "follow_up_context": "Dropping nighttime feedings at 3.5 months is a huge deal — for Adelina and for the adults in the house. Her little body had grown enough to make it through the night without refueling."
+    },
+    {
+      "id": 23,
+      "question": "On Valentine's Day, at exactly 4 months old, Adelina discovered a bold new use for her voice. What was it?",
+      "answer": "C) Shrieking",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Laughing out loud",
+        "B) Blowing raspberries",
+        "C) Shrieking",
+        "D) Saying 'mama'"
+      ],
+      "follow_up_context": "Nothing says Happy Valentine's Day like a baby discovering she can shriek. At 4 months, babies often find their upper vocal range and are delighted by the results. The adults are... also experiencing something."
+    },
+    {
+      "id": 24,
+      "question": "At 4 months, Adelina graduated to her crib. How was she already sleeping when she made the move?",
+      "answer": "B) Arms out — no swaddle",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Tightly swaddled",
+        "B) Arms out — no swaddle",
+        "C) In a sleep sack",
+        "D) On her tummy"
+      ],
+      "follow_up_context": "Already arms out at 4 months! Babies who start breaking out of swaddles are usually ready to transition — and Adelina was ahead of the curve."
+    },
+    {
+      "id": 25,
+      "question": "At 4.5 months, Adelina figured out rolling — which direction did she master first?",
+      "answer": "A) Front to back",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Front to back",
+        "B) Back to front",
+        "C) Both at the same time",
+        "D) She skipped rolling and went straight to crawling"
+      ],
+      "follow_up_context": "Front to back usually comes first — it's a little easier because gravity helps. Adelina nailed it at 4.5 months, right on track."
+    },
+    {
+      "id": 26,
+      "question": "Just four days after her first roll, what did Adelina do?",
+      "answer": "B) Rolled both ways — multiple times",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Refused to roll at all",
+        "B) Rolled both ways — multiple times",
+        "C) Rolled so much she fell off the mat",
+        "D) Added a spin move"
+      ],
+      "follow_up_context": "Four days after mastering front-to-back, Adelina was rolling front to back AND back to front, multiple times in a row. Once babies get rolling, they go all in."
+    },
+    {
+      "id": 27,
+      "question": "At nearly 5 months, Adelina hit two milestones in one day. What were they?",
+      "answer": "B) First time sleeping on her tummy + started sleep training",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) First laugh + first tooth",
+        "B) First time sleeping on her tummy + started sleep training",
+        "C) First solid food + first clap",
+        "D) First word + first high five"
+      ],
+      "follow_up_context": "A big day: Adelina slept on her stomach for the first time, and the family started fuss-it-out sleep training. Once babies can roll both ways, tummy sleeping is considered safe — because they can reposition themselves."
+    },
+    {
+      "id": 28,
+      "question": "At 5 months old, Adelina made an exciting discovery about her own body. What did she find?",
+      "answer": "C) Her toes — and she could grab them",
+      "answer_type": "multiple_choice",
+      "options": [
+        "A) Her reflection in the mirror",
+        "B) Her belly button",
+        "C) Her toes — and she could grab them",
+        "D) Her own name"
+      ],
+      "follow_up_context": "Grabbing toes at 5 months is a classic baby milestone — it means her core strength and flexibility have developed enough to fold herself in half. Also, toes are fascinating. Frankly, we get it."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# env files (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# SQLite database (lives on persistent volume in production)
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# Uploaded media (lives on persistent volume in production)
+public/media/photos/
+public/media/videos/
+
+# OS
+.DS_Store
+
+# Claude Code local settings
+.claude/
+
+# debug
+npm-debug.log*
