@@ -153,9 +153,6 @@ export default function CategoryPage() {
           )}
           <div>
             <h1 className="text-2xl font-bold text-brand-700">{message}</h1>
-            <p className="text-brand-400 mt-1">
-              {correctCount} of {sessionResults.length} correct this round
-            </p>
           </div>
 
           {mediaUrl && (
