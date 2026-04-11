@@ -14,7 +14,7 @@ export function CursorManager() {
     document.head.appendChild(styleEl);
 
     function update() {
-      styleEl.textContent = `* { cursor: url('${getCursorUrl()}') 16 16, auto !important; }`;
+      styleEl.textContent = `* { cursor: url('${getCursorUrl()}') 32 32, auto !important; }`;
     }
 
     update();
