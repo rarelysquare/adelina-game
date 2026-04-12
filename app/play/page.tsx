@@ -70,7 +70,7 @@ export default function PlayPage() {
           <p className="text-sm text-brand-400">
             {isNight ? "Good evening" : "Welcome back"},
           </p>
-          {isNight && (
+          {isNight && !completed && (
             <p className="text-sm text-brand-400">Answer the daily question to reveal a new moment.</p>
           )}
           <h1 className="text-2xl font-bold text-brand-700">{player.name}</h1>
