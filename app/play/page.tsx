@@ -70,6 +70,9 @@ export default function PlayPage() {
           <p className="text-sm text-brand-400">
             {isNight ? "Good evening" : "Welcome back"},
           </p>
+          {isNight && (
+            <p className="text-sm text-brand-400">Answer the daily question to reveal a new moment.</p>
+          )}
           <h1 className="text-2xl font-bold text-brand-700">{player.name}</h1>
           {player.current_streak > 1 && (
             <p className="text-sm text-blush-400 font-medium flex items-center justify-center gap-1">
@@ -80,10 +83,10 @@ export default function PlayPage() {
         </div>
 
         {/* Daily status pill */}
-        <div className={`rounded-2xl px-4 py-3 text-sm text-center font-medium border ${
+        <div className={`rounded-2xl px-4 py-3 text-sm text-center font-medium ${
           completed
-            ? "bg-brand-50 border-brand-200 text-brand-600"
-            : "bg-cream-50 border-brand-100 text-brand-400"
+            ? "bg-brand-50 border border-brand-200 text-brand-600"
+            : "text-brand-400"
         }`}>
           {completed ? "✓ Today's question complete" : "Today's question is waiting for you"}
         </div>
