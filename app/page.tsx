@@ -74,9 +74,6 @@ export default function LandingPage() {
             className="w-40 h-40 mx-auto object-contain"
           />
           <h1 className="text-3xl font-bold text-brand-700">Baby Adelina Trivia</h1>
-          <p className="text-brand-600/70 text-base">
-            Answer the daily question to reveal a new moment.
-          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
