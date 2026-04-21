@@ -267,11 +267,16 @@ export default function QuestionsPage() {
   }, [status]);
 
   async function handleSave(id: number, updates: Partial<Question> & { tags?: string }) {
-    await fetch(`/api/admin/questions/${id}`, {
+    const res = await fetch(`/api/admin/questions/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updates),
     });
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      alert(`Save failed (${res.status}): ${body.error ?? "unknown error"}`);
+      return;
+    }
     load();
   }
 
