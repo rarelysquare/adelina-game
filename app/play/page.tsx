@@ -122,7 +122,7 @@ export default function PlayPage() {
 
                 <SaveMediaButton
                   mediaUrl={media_url}
-                  mediaType={media_type}
+                  mediaType={media_type ?? "photo"}
                   className="flex items-center justify-center gap-2 w-full bg-brand-500 hover:bg-brand-600 disabled:opacity-50 text-white text-sm font-semibold text-center py-3 rounded-xl transition"
                 />
               </>
