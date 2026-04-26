@@ -52,6 +52,7 @@ export default function CategoryPage() {
   const [mediaType, setMediaType] = useState<"video" | "photo" | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [smsOptedIn, setSmsOptedIn] = useState(false);
+  const [smsReallyOptedIn, setSmsReallyOptedIn] = useState(false);
   const [phoneInput, setPhoneInput] = useState("");
   const [smsSaving, setSmsSaving] = useState(false);
   const [smsError, setSmsError] = useState("");
@@ -59,7 +60,9 @@ export default function CategoryPage() {
   const slug = typeof window !== "undefined" ? localStorage.getItem("playerSlug") : null;
 
   useEffect(() => {
-    setSmsOptedIn(localStorage.getItem("smsOptedIn") === "1");
+    const val = localStorage.getItem("smsOptedIn");
+    setSmsOptedIn(val === "1" || val === "skip");
+    setSmsReallyOptedIn(val === "1");
   }, []);
 
   const loadQuestions = useCallback(async () => {
@@ -177,6 +180,7 @@ export default function CategoryPage() {
       } else {
         localStorage.setItem("smsOptedIn", "1");
         setSmsOptedIn(true);
+        setSmsReallyOptedIn(true);
       }
       setSmsSaving(false);
     }
@@ -190,6 +194,7 @@ export default function CategoryPage() {
       });
       localStorage.removeItem("smsOptedIn");
       setSmsOptedIn(false);
+      setSmsReallyOptedIn(false);
     }
 
     return (
@@ -287,7 +292,7 @@ export default function CategoryPage() {
           </button>
 
           {/* Unsubscribe (only shown after opted in via phone, not "skip") */}
-          {smsOptedIn && localStorage.getItem("smsOptedIn") === "1" && (
+          {smsReallyOptedIn && (
             <button
               onClick={handleSmsOptOut}
               className="text-xs text-brand-300 hover:text-brand-500"
