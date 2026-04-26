@@ -5,19 +5,20 @@ import { FlameIcon } from "../components/SoftIcons";
 import { DevReset } from "../components/DevReset";
 import { SaveMediaButton } from "../components/SaveMediaButton";
 
-const DAY_ILLUSTRATIONS = [
-  "standing", "crawling-bunny", "holding-donut", "crawling-grass",
-  "sitting-crawl", "playing-sand", "sitting-happy", "pointing",
-  "laptop", "happy-back", "playing-mat", "tummy-bunny",
-];
-const NIGHT_ILLUSTRATIONS = ["sleeping-back", "sleeping-side", "sleeping-tummy"];
+const FALLBACK_DAY = ["standing","crawling-bunny","holding-donut","crawling-grass","sitting-crawl","playing-sand","sitting-happy","pointing","laptop","happy-back","playing-mat","tummy-bunny"];
+const FALLBACK_NIGHT = ["sleeping-back","sleeping-side","sleeping-tummy"];
 
-function getDailyIllustration() {
-  const now = new Date();
-  const isNight = now.getHours() >= 19;
-  const pool = isNight ? NIGHT_ILLUSTRATIONS : DAY_ILLUSTRATIONS;
+function pickIllustration(urls: string[]) {
+  if (!urls.length) return null;
   const day = Math.floor(Date.now() / 86400000);
-  return pool[day % pool.length];
+  return urls[day % urls.length];
+}
+
+function fallbackIllustration() {
+  const isNight = new Date().getHours() >= 19;
+  const pool = isNight ? FALLBACK_NIGHT : FALLBACK_DAY;
+  const day = Math.floor(Date.now() / 86400000);
+  return `/illustrations/adelina-${pool[day % pool.length]}.png`;
 }
 
 interface Status {
@@ -31,18 +32,26 @@ export default function PlayPage() {
   const router = useRouter();
   const [status, setStatus] = useState<Status | null>(null);
   const [loading, setLoading] = useState(true);
+  const [illustrationUrl, setIllustrationUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const slug = localStorage.getItem("playerSlug");
     if (!slug) { router.replace("/"); return; }
 
-    fetch(`/api/game/status?slug=${slug}`)
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.error) { router.replace("/"); return; }
-        setStatus(data);
-      })
-      .finally(() => setLoading(false));
+    const isNight = new Date().getHours() >= 19;
+
+    Promise.all([
+      fetch(`/api/game/status?slug=${slug}`).then((r) => r.json()),
+      fetch("/api/game/illustrations").then((r) => r.json()),
+    ]).then(([statusData, illData]) => {
+      if (statusData.error) { router.replace("/"); return; }
+      setStatus(statusData);
+      const allUrls: string[] = (illData.illustrations ?? []).map((i: { url: string }) => i.url);
+      const nightUrls = allUrls.filter((u) => FALLBACK_NIGHT.some((n) => u.includes(n)));
+      const dayUrls = allUrls.filter((u) => !FALLBACK_NIGHT.some((n) => u.includes(n)));
+      const pool = isNight ? nightUrls : dayUrls;
+      setIllustrationUrl(pickIllustration(pool) ?? fallbackIllustration());
+    }).finally(() => setLoading(false));
   }, [router]);
 
   if (loading) return (
@@ -64,7 +73,7 @@ export default function PlayPage() {
         <div className="text-center space-y-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`/illustrations/adelina-${getDailyIllustration()}.png`}
+            src={illustrationUrl ?? fallbackIllustration()}
             alt="Adelina"
             className="w-28 h-28 mx-auto object-contain"
           />

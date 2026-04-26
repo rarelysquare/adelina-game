@@ -6,10 +6,10 @@ import { StarIcon, ClapIcon, MuscleIcon } from "@/app/components/SoftIcons";
 import { DevReset } from "@/app/components/DevReset";
 import { SaveMediaButton } from "@/app/components/SaveMediaButton";
 
-const NIGHT_ILLUSTRATIONS = ["sleeping-back", "sleeping-side", "sleeping-tummy"];
-function getNightIllustration() {
+const NIGHT_NAMES = ["sleeping-back", "sleeping-side", "sleeping-tummy"];
+function getFallbackNightUrl() {
   const day = Math.floor(Date.now() / 86400000);
-  return NIGHT_ILLUSTRATIONS[day % NIGHT_ILLUSTRATIONS.length];
+  return `/illustrations/adelina-${NIGHT_NAMES[day % NIGHT_NAMES.length]}.png`;
 }
 function isNightTime() {
   return new Date().getHours() >= 19;
@@ -51,6 +51,7 @@ export default function CategoryPage() {
   const [mediaUrl, setMediaUrl] = useState<string | null>(null);
   const [mediaType, setMediaType] = useState<"video" | "photo" | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [nightIllUrl, setNightIllUrl] = useState<string | null>(null);
   const [smsOptedIn, setSmsOptedIn] = useState(false);
   const [smsReallyOptedIn, setSmsReallyOptedIn] = useState(false);
   const [phoneInput, setPhoneInput] = useState("");
@@ -63,6 +64,16 @@ export default function CategoryPage() {
     const val = localStorage.getItem("smsOptedIn");
     setSmsOptedIn(val === "1" || val === "skip");
     setSmsReallyOptedIn(val === "1");
+    // Pre-fetch night illustrations
+    fetch("/api/game/illustrations").then((r) => r.json()).then((d) => {
+      const nightUrls: string[] = (d.illustrations ?? [])
+        .map((i: { url: string }) => i.url)
+        .filter((u: string) => NIGHT_NAMES.some((n) => u.includes(n)));
+      if (nightUrls.length) {
+        const day = Math.floor(Date.now() / 86400000);
+        setNightIllUrl(nightUrls[day % nightUrls.length]);
+      }
+    }).catch(() => {});
   }, []);
 
   const loadQuestions = useCallback(async () => {
@@ -204,7 +215,7 @@ export default function CategoryPage() {
           {night ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={`/illustrations/adelina-${getNightIllustration()}.png`}
+              src={nightIllUrl ?? getFallbackNightUrl()}
               alt="Adelina"
               className="w-40 h-40 mx-auto object-contain"
             />
