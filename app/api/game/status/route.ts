@@ -12,6 +12,12 @@ export async function GET(req: Request) {
   if (!playerRows.length) return NextResponse.json({ error: "Player not found" }, { status: 404 });
   const player = playerRows[0];
 
+  const { rows: daysRows } = await db.query(
+    "SELECT COUNT(*) as count FROM player_sessions WHERE player_id = $1",
+    [player.id]
+  );
+  const days_played = parseInt(daysRows[0].count, 10);
+
   const today = todayDate();
   const { rows: sessionRows } = await db.query(
     "SELECT answers_json, score FROM player_sessions WHERE player_id = $1 AND game_date = $2",
@@ -36,6 +42,7 @@ export async function GET(req: Request) {
 
   return NextResponse.json({
     player,
+    days_played,
     questions_answered: answers.length,
     questions_remaining: Math.max(0, MAX_DAILY_QUESTIONS - answers.length),
     score_today: answers.filter((a) => a.correct).length,

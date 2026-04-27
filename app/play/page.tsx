@@ -23,9 +23,31 @@ function fallbackIllustration() {
 
 interface Status {
   player: { name: string; current_streak: number; total_points: number };
+  days_played: number;
   completed: boolean;
   media_url: string | null;
   media_type: "video" | "photo" | null;
+}
+
+function ShareButton() {
+  async function handleShare() {
+    const url = window.location.origin;
+    if (navigator.share) {
+      navigator.share({ title: "Baby Adelina Trivia", url }).catch(() => {});
+    } else {
+      await navigator.clipboard.writeText(url);
+      alert("Link copied!");
+    }
+  }
+
+  return (
+    <button
+      onClick={handleShare}
+      className="w-full max-w-[300px] mx-auto flex items-center justify-center gap-2 bg-brand-50 border border-brand-200 text-brand-600 font-semibold py-3 rounded-2xl text-sm transition hover:bg-brand-100"
+    >
+      📤 Share Adelina&apos;s game
+    </button>
+  );
 }
 
 export default function PlayPage() {
@@ -62,7 +84,7 @@ export default function PlayPage() {
 
   if (!status) return null;
 
-  const { player, completed, media_url, media_type } = status;
+  const { player, days_played, completed, media_url, media_type } = status;
   const isNight = new Date().getHours() >= 19;
 
   return (
@@ -78,7 +100,7 @@ export default function PlayPage() {
             className="w-[85%] max-w-[240px] h-auto mx-auto object-contain"
           />
           <p className="text-xl leading-relaxed text-brand-400">
-            {isNight ? "Good evening" : "Welcome back"}, {player.name}
+            {completed ? "Thanks for playing" : (isNight ? "Good evening" : "Welcome back")}, {player.name}
           </p>
           {player.current_streak > 1 && (
             <p className="text-sm text-blush-400 font-medium flex items-center justify-center gap-1">
@@ -88,15 +110,15 @@ export default function PlayPage() {
           )}
         </div>
 
-        {/* Daily status pill */}
-        {(completed || player.total_points > 0 || player.current_streak > 0) && (
-          <div className={`rounded-2xl px-4 py-3 text-sm text-center font-medium ${
-            completed
-              ? "bg-brand-50 border border-brand-200 text-brand-600"
-              : "text-brand-400"
-          }`}>
-            {completed ? "✓ Today's question is complete" : "Today's question is waiting for you"}
-          </div>
+        {/* Daily status / share */}
+        {completed ? (
+          days_played < 3 && <ShareButton />
+        ) : (
+          (player.total_points > 0 || player.current_streak > 0) && (
+            <div className="rounded-2xl px-4 py-3 text-sm text-center font-medium text-brand-400">
+              Today's question is waiting for you
+            </div>
+          )
         )}
 
         {completed ? (
@@ -125,6 +147,7 @@ export default function PlayPage() {
                   mediaType={media_type ?? "photo"}
                   className="flex items-center justify-center gap-2 w-full bg-brand-500 hover:bg-brand-600 disabled:opacity-50 text-white text-sm font-semibold text-center py-3 rounded-xl transition"
                 />
+                {days_played >= 3 && <ShareButton />}
               </>
             ) : (
               <p className="text-center text-brand-400 text-sm py-4">
