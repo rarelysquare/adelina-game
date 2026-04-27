@@ -38,6 +38,17 @@ export default function IllustrationsPage() {
     if (status === "authenticated") load();
   }, [status]);
 
+  async function renameTo(ill: Illustration, newName: string) {
+    const name = newName.trim();
+    if (!name || name === ill.name) return;
+    await fetch(`/api/admin/illustrations/${ill.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name }),
+    });
+    load();
+  }
+
   async function toggleActive(ill: Illustration) {
     await fetch(`/api/admin/illustrations/${ill.id}`, {
       method: "PUT",
@@ -128,7 +139,12 @@ export default function IllustrationsPage() {
                   <div key={ill.id} className="bg-white rounded-2xl shadow p-3 flex flex-col items-center gap-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={ill.url} alt={ill.name} className="w-20 h-20 object-contain" />
-                    <p className="text-xs text-gray-600 text-center leading-tight">{ill.name}</p>
+                    <input
+                      defaultValue={ill.name}
+                      onBlur={(e) => renameTo(ill, e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
+                      className="text-xs text-gray-600 text-center w-full border-b border-transparent hover:border-gray-300 focus:border-brand-400 focus:outline-none bg-transparent"
+                    />
                     <div className="flex gap-2">
                       <button
                         onClick={() => toggleActive(ill)}
@@ -157,7 +173,12 @@ export default function IllustrationsPage() {
                     <div key={ill.id} className="bg-white rounded-2xl shadow p-3 flex flex-col items-center gap-2">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={ill.url} alt={ill.name} className="w-20 h-20 object-contain grayscale" />
-                      <p className="text-xs text-gray-400 text-center leading-tight">{ill.name}</p>
+                      <input
+                        defaultValue={ill.name}
+                        onBlur={(e) => renameTo(ill, e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
+                        className="text-xs text-gray-400 text-center w-full border-b border-transparent hover:border-gray-300 focus:border-brand-400 focus:outline-none bg-transparent"
+                      />
                       <div className="flex gap-2">
                         <button
                           onClick={() => toggleActive(ill)}

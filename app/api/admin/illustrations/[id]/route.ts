@@ -13,9 +13,14 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   const { id } = await params;
-  const { active } = await req.json();
+  const body = await req.json();
   const db = await getDb();
-  await db.query("UPDATE illustrations SET active = $1 WHERE id = $2", [active ? 1 : 0, id]);
+  if (body.name !== undefined) {
+    await db.query("UPDATE illustrations SET name = $1 WHERE id = $2", [body.name, id]);
+  }
+  if (body.active !== undefined) {
+    await db.query("UPDATE illustrations SET active = $1 WHERE id = $2", [body.active ? 1 : 0, id]);
+  }
   return NextResponse.json({ ok: true });
 }
 
