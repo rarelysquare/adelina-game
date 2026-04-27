@@ -82,6 +82,12 @@ Use these tags on both trivia questions and uploaded videos to power the tag-mat
 
 ---
 
+## Known Bugs
+- [ ] **Grey line on walking + play-gym illustrations**: Sticker's warm-grey outline (~RGB 80-140) survives flood-fill background removal and appears as a grey line on the left edge. Many approaches tried (threshold tuning, strip_isolated_edge_lines, tight_crop). Try morphological erosion or a second-pass flood fill seeded from already-transparent pixels.
+- [ ] **MC answer options not saving in /admin/questions**: Edits return 200 but changes don't persist. Root cause unknown.
+
+---
+
 ## Deployment
 - [ ] Set up Railway with persistent volume for /public/media
 - [ ] Configure Railway environment variables

@@ -45,11 +45,12 @@ def remove_bg_padded(cell_img: Image.Image, tolerance: int = 30) -> Image.Image:
     while queue:
         x, y = queue.popleft()
         r, g, b, a = data[x, y]
+        mean_v = (int(r) + int(g) + int(b)) // 3
+        max_diff = max(abs(int(r)-int(g)), abs(int(g)-int(b)), abs(int(r)-int(b)))
         is_bg = (
             a < 10 or
-            # near-neutral grey or white (background colours in these illustrations)
-            (r > 150 and g > 150 and b > 150 and
-             abs(int(r)-int(g)) < 35 and abs(int(g)-int(b)) < 35)
+            # near-neutral: catches white, grey, and the warm-grey sticker outlines
+            (mean_v > 40 and max_diff < 40)
         )
         if is_bg:
             data[x, y] = (r, g, b, 0)
@@ -87,6 +88,33 @@ def remove_title_islands(cell_img: Image.Image, title_zone_rows: int = 320) -> I
 
     return Image.fromarray(result)
 
+def strip_isolated_edge_lines(img: Image.Image) -> Image.Image:
+    """
+    Remove any 1-pixel-wide opaque stripe on the four edges where the adjacent
+    interior column/row is fully transparent.  Catches sticker outline remnants
+    that survive background removal because their colour isn't near-neutral.
+    """
+    arr = np.array(img).copy()
+    h, w = arr.shape[:2]
+
+    def col_opaque(c): return (arr[:, c, 3] > 10).any()
+    def row_opaque(r): return (arr[r, :, 3] > 10).any()
+
+    # Left edge
+    if col_opaque(0) and not col_opaque(1):
+        arr[:, 0, 3] = 0
+    # Right edge
+    if col_opaque(w - 1) and not col_opaque(w - 2):
+        arr[:, w - 1, 3] = 0
+    # Top edge
+    if row_opaque(0) and not row_opaque(1):
+        arr[0, :, 3] = 0
+    # Bottom edge
+    if row_opaque(h - 1) and not row_opaque(h - 2):
+        arr[h - 1, :, 3] = 0
+
+    return Image.fromarray(arr)
+
 def tight_crop(img: Image.Image) -> Image.Image:
     arr = np.array(img)
     alpha = arr[:,:,3]
@@ -96,9 +124,9 @@ def tight_crop(img: Image.Image) -> Image.Image:
         return img
     rmin, rmax = np.where(rows)[0][[0,-1]]
     cmin, cmax = np.where(cols)[0][[0,-1]]
-    m = 10
-    rmin = max(0, rmin-m); rmax = min(img.height-1, rmax+m)
-    cmin = max(0, cmin-m); cmax = min(img.width-1, cmax+m)
+    # No side margin — crop flush to illustration edge so no thin lines appear
+    rmin = max(0, rmin - 2); rmax = min(img.height-1, rmax + 2)
+    cmin = max(0, cmin);     cmax = min(img.width-1, cmax)
     return img.crop((cmin, rmin, cmax+1, rmax+1))
 
 img = Image.open(src).convert("RGBA")
@@ -109,6 +137,8 @@ for name, (x1, y1, x2, y2) in cells.items():
     if name in TOP_ROW:
         cell = remove_title_islands(cell, title_zone_rows=320)
     cell = tight_crop(cell)
+    cell = strip_isolated_edge_lines(cell)
+    cell = tight_crop(cell)  # re-crop after stripping
     out_path = os.path.join(out_dir, f"adelina-{name}.png")
     cell.save(out_path)
     print(f"  ✓ {name}  ({cell.size[0]}x{cell.size[1]}px)")

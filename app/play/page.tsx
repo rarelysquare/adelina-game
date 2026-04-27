@@ -78,12 +78,8 @@ export default function PlayPage() {
             className="w-28 h-28 mx-auto object-contain"
           />
           <p className="text-sm text-brand-400">
-            {isNight ? "Good evening" : "Welcome back"},
+            {isNight ? "Good evening" : "Welcome back"}, {player.name}
           </p>
-          {isNight && !completed && (
-            <p className="text-sm text-brand-400">Answer the daily question to reveal a new moment.</p>
-          )}
-          <h1 className="text-2xl font-bold text-brand-700">{player.name}</h1>
           {player.current_streak > 1 && (
             <p className="text-sm text-blush-400 font-medium flex items-center justify-center gap-1">
               <FlameIcon className="w-4 h-4" />
@@ -93,26 +89,21 @@ export default function PlayPage() {
         </div>
 
         {/* Daily status pill */}
-        <div className={`rounded-2xl px-4 py-3 text-sm text-center font-medium ${
-          completed
-            ? "bg-brand-50 border border-brand-200 text-brand-600"
-            : "text-brand-400"
-        }`}>
-          {completed ? "✓ Today's question complete" : "Today's question is waiting for you"}
-        </div>
+        {(completed || player.total_points > 0 || player.current_streak > 0) && (
+          <div className={`rounded-2xl px-4 py-3 text-sm text-center font-medium ${
+            completed
+              ? "bg-brand-50 border border-brand-200 text-brand-600"
+              : "text-brand-400"
+          }`}>
+            {completed ? "✓ Today's question is complete" : "Today's question is waiting for you"}
+          </div>
+        )}
 
         {completed ? (
           /* ── Completed state ── */
           <div className="space-y-4">
             {media_url ? (
               <>
-                <div className="text-center space-y-1">
-                  <p className="text-2xl">🎀</p>
-                  <p className="font-semibold text-brand-700">
-                    {media_type === "photo" ? "Today's memory" : "Today's video"}
-                  </p>
-                </div>
-
                 {media_type === "video" ? (
                   <video
                     src={media_url}
