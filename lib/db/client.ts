@@ -28,21 +28,19 @@ async function init(): Promise<Pool> {
     await pool.query(sql);
   }
 
-  // Seed built-in illustrations if table is empty
-  const { rows: existing } = await pool.query("SELECT COUNT(*) as n FROM illustrations");
-  if (parseInt(existing[0].n) === 0) {
-    const builtins = [
-      "standing","crawling-bunny","holding-donut","crawling-grass",
-      "sitting-crawl","playing-sand","sitting-happy","pointing",
-      "laptop","happy-back","playing-mat","tummy-bunny",
-      "sleeping-back","sleeping-side","sleeping-tummy",
-    ];
-    for (const name of builtins) {
-      await pool.query(
-        "INSERT INTO illustrations (name, url, is_builtin) VALUES ($1, $2, 1) ON CONFLICT (name) DO NOTHING",
-        [name, `/illustrations/adelina-${name}.png`]
-      );
-    }
+  // Seed all built-in illustrations (ON CONFLICT DO NOTHING = safe to re-run)
+  const builtins = [
+    "standing","crawling-bunny","holding-donut","crawling-grass",
+    "sitting-crawl","playing-sand","sitting-happy","pointing",
+    "laptop","happy-back","playing-mat","tummy-bunny",
+    "sleeping-back","sleeping-side","sleeping-tummy",
+    "snacking","rocking-llama","play-gym","sunglasses","sun-hat","walking",
+  ];
+  for (const name of builtins) {
+    await pool.query(
+      "INSERT INTO illustrations (name, url, is_builtin) VALUES ($1, $2, 1) ON CONFLICT (name) DO NOTHING",
+      [name, `/illustrations/adelina-${name}.png`]
+    );
   }
 
   return pool;
